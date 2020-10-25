@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-import httplib, urllib
+import http.client, urllib
 def button_callback(channel):
     print("Dont push me cause I am close to the edge..")
     conn = httplib.HTTPSConnection("pushsafer.com:443")
