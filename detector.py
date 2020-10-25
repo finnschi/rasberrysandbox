@@ -3,7 +3,7 @@ import time
 def button_callback(channel):
     print("push detected!")
     GPIO.output(10, GPIO.HIGH)
-    time.sleep(1)
+    time.sleep(.1)
     GPIO.output(10, GPIO.LOW)
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
