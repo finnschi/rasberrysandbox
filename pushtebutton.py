@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-def button_callback(channel)
+def button_callback(channel):
     print("Dont push me cause I am close to the edge..")
 
 GPIO.setmode(GPIO.BOARD)
