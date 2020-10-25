@@ -1,8 +1,12 @@
 import RPi.GPIO as GPIO
-#import http.client, urllib
+import apprise
+apobj = apprise.Apprise()
+apobj.add('tgram://1308991529:AAG6R_lZ5RMEjOirzQt3cQIj00IPTjpRC-I/-433421664')
 def button_callback(channel):
-    print("Dont push me cause I am close to the edge..")
-
+    apobj.notify(
+        body='YOUR DOORBELL IS BELLING GO RUN NOW!',
+        title='DoorBell',
+    )
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(8, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.add_event_detect(8,GPIO.RISING,callback=button_callback)
