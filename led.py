@@ -2,9 +2,16 @@ import RPi.GPIO as GPIO
 from time import sleep
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
-GPIO.setup(10,GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(12,GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(16,GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(18,GPIO.OUT, initial=GPIO.LOW)
 while True: # Run forever
-    GPIO.output(10, GPIO.HIGH) # Turn on
-    sleep(.1)                  # Sleep for 1 second
-    GPIO.output(10, GPIO.LOW)  # Turn off
-    sleep(.1)                  # Sleep for 1 second
+    GPIO.output(18, GPIO.LOW)
+    GPIO.output(12, GPIO.HIGH)
+    sleep(10)
+    GPIO.output(16, GPIO.HIGH)
+    sleep(3)
+    GPIO.output(12, GPIO.LOW)
+    GPIO.output(16, GPIO.LOW)
+    GPIO.output(18, GPIO.HIGH)
+    sleep(10)
