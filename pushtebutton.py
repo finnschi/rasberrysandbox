@@ -1,18 +1,10 @@
 import RPi.GPIO as GPIO
-import httplib, urllib
+#import http.client, urllib
+from pushsafer import init, Client
+init("077tGJYCAJfX4NGoqlP4")
 def button_callback(channel):
     print("Dont push me cause I am close to the edge..")
-    conn = httplib.HTTPSConnection("pushsafer.com:443")
-    conn.request("POST", "/api",
-                 urllib.urlencode({
-                     "k": "077tGJYCAJfX4NGoqlP4",  # Your Private or Alias Key
-                     "m": "BUTTON WAS PRESSED!!!",  # Message Text
-                     "t": "DI DUM",  # Title of message
-                     "i": "1",  # Icon number 1-98
-                     "s": "0",  # Sound number 0-28
-                     "v": "3",  # Vibration number 0-3
-                 }), {"Content-type": "application/x-www-form-urlencoded"})
-    response = conn.getresponse()
+    Client("").send_message("Message", "Hello", "323", "1", "4", "2", "https://www.pushsafer.com", "Open Pushsafer", "0", "2", "60", "600", "1", "", "", "")
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(8, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
