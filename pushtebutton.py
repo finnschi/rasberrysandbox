@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import http.client, urllib
 def button_callback(channel):
     print("Dont push me cause I am close to the edge..")
-    conn = httplib.HTTPSConnection("pushsafer.com:443")
+    conn = http.client.HTTPSConnection("pushsafer.com:443")
     conn.request("POST", "/api",
                  urllib.urlencode({
                      "k": "077tGJYCAJfX4NGoqlP4",  # Your Private or Alias Key
