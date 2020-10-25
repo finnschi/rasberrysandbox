@@ -7,5 +7,4 @@ apobj.add(config)
 apobj.notify(
     body='YOUR DOORBELL IS BELLING GO RUN NOW!',
     title='DoorBell',
-    tag="telegram",
 )
