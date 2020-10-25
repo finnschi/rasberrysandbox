@@ -1,11 +1,14 @@
 import RPi.GPIO as GPIO
 import apprise
 apobj = apprise.Apprise()
-apobj.add('tgram://1308991529:AAG6R_lZ5RMEjOirzQt3cQIj00IPTjpRC-I/-433421664')
+config = apprise.AppriseConfig()
+config.add('/home/pi/.config/apprise.yml')
+apobj.add(config)
 def button_callback(channel):
     apobj.notify(
         body='YOUR DOORBELL IS BELLING GO RUN NOW!',
         title='DoorBell',
+        tag="telegram"
     )
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(8, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
